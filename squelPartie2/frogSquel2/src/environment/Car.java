@@ -16,7 +16,18 @@ public class Car {
 
 	//TODO Constructeur(s)
 	
+	public Car (Game game) {
+		this.game = game;
+		this.leftPosition = leftPosition;
+		this.leftToRight = leftToRight;
+		this.length = length;
+		this.colorLtR = colorLtR;
+		this.colorRtL = colorRtL;
+	}
+	
 	//TODO : ajout de methodes
+	
+	
 
 	
 	
