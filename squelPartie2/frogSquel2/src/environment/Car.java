@@ -1,10 +1,10 @@
 package environment;
 
-import java.awt.Color;
-
-import gameCommons.Case;
+import util.Case;
 import gameCommons.Game;
 import graphicalElements.Element;
+
+import java.awt.*;
 
 public class Car {
 	private Game game;
