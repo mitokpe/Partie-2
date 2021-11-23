@@ -21,8 +21,8 @@ public class Car {
 		this.leftPosition = leftPosition;
 		this.leftToRight = leftToRight;
 		this.length = length;
-		this.colorLtR = Color.BLACK;
-		this.colorRtL = Color.BLUE;
+		//this.colorLtR = Color.BLACK;
+		//this.colorRtL = Color.BLUE;
 	}
 	
 	//TODO : ajout de methodes

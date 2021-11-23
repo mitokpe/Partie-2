@@ -72,7 +72,7 @@ public class Lane {
 	 * densité, si la première case de la voie est vide
 	 */
 	private void mayAddCar() {
-		if (isSafe(getFirstCase()) && isSafe(getBeforeFirstCase())) {
+		if (game.setEnvironment().isSafe(getFirstCase()) && game.setEnvironment();isSafe(getBeforeFirstCase())) {
 			if (game.randomGen.nextDouble() < density) {
 				cars.add(new Car(game, getBeforeFirstCase(), leftToRight));
 			}
