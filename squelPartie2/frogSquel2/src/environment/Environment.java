@@ -6,7 +6,7 @@ import util.Case;
 import gameCommons.Game;
 import gameCommons.IEnvironment;
 
-public class Environment implements IEnvironment {
+public abstract class Environment implements IEnvironment {
 		
 	//TODO
 

@@ -57,8 +57,9 @@ public class Lane {
 
 	/**
 	 * avoir la densite
+	 * @return
 	 */
-	public int getDensity() {
+	public double getDensity() {
 		return density;
 	}
 
