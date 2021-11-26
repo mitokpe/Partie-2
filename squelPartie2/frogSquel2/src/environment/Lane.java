@@ -15,6 +15,7 @@ public class Lane {
 	private boolean leftToRight;
 	private double density;
 	private int timer;
+	private ArrayList<Lane> road;
 
 	// TODO : Constructeur(s)
 	
@@ -89,13 +90,16 @@ public class Lane {
 	/*
 	 * Fourni : mayAddCar(), getFirstCase() et getBeforeFirstCase() 
 	 */
+	public boolean isSafe(Case c) {
+		return (this.road.get(c.ord)).isSafe(c);
+	}
 
 	/**
 	 * Ajoute une voiture au début de la voie avec probabilité égale à la
 	 * densité, si la première case de la voie est vide
 	 */
 	private void mayAddCar() {
-		if (game.setEnvironment().isSafe(getFirstCase()) && game.setEnvironment().isSafe(getBeforeFirstCase())) {
+		if (isSafe(getFirstCase()) && isSafe(getBeforeFirstCase())) {
 			if (game.randomGen.nextDouble() < density) {
 				cars.add(new Car(game, getBeforeFirstCase(), leftToRight));
 			}

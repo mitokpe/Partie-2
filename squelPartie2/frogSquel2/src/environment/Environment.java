@@ -13,13 +13,13 @@ public abstract class Environment implements IEnvironment {
 	//TODO
 
     public class environment implements IEnvironment {
-        private ArrayList<givenEnvironment.Lane> road;
+        private ArrayList<Lane> road;
         private Game game;
 
         public environment (Game game) {
             this.game = game;
             this.road = new ArrayList();
-            this.road.add(new givenEnvironment.Lane(game, 0, 0.0D));
+            this.road.add(new Lane(game, 0, 0.0D));
 
             for(int i = 1; i < game.height - 1; ++i) {
                 this.road.add(new Lane(game, i));
