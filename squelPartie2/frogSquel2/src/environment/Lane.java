@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import util.Case;
 import gameCommons.Game;
+import java.util.Iterator;
 import java.util.Random;
 
 public class Lane {
@@ -24,12 +25,25 @@ public class Lane {
 		this.cars = new ArrayList<>();
 		this.leftToRight = game.randomGen.nextBoolean();
 		this.density = density;
+
+		for(int i = 0; i < 4 * game.width; ++i) {
+			this.moveCars(true);
+			this.mayAddCar();
+		}
 	}
 
 	public void update() {
 
 		// TODO
-
+		++this.timer;
+		if (this.timer <= this.speed) {
+			this.moveCars(false);
+		} else {
+			this.moveCars(true);
+			this.mayAddCar();
+			this.timer = 0;
+		}
+	}
 		// Toutes les voitures se déplacent d'une case au bout d'un nombre "tic
 		// d'horloge" égal à leur vitesse
 		// Notez que cette méthode est appelée à chaque tic d'horloge
@@ -38,8 +52,6 @@ public class Lane {
 		// elle ne bougent pas
 
 		// A chaque tic d'horloge, une voiture peut être ajoutée
-
-	}
 
 	// TODO : ajout de methodes
 	
@@ -65,6 +77,15 @@ public class Lane {
 		return density;
 	}
 
+	private void moveCars(boolean b) {
+		Iterator var3 = this.cars.iterator();
+
+		while (var3.hasNext()) {
+			givenEnvironment.Car car = (givenEnvironment.Car) var3.next();
+			car.move(b);
+		}
+	}
+
 	/*
 	 * Fourni : mayAddCar(), getFirstCase() et getBeforeFirstCase() 
 	 */
@@ -74,7 +95,7 @@ public class Lane {
 	 * densité, si la première case de la voie est vide
 	 */
 	private void mayAddCar() {
-		if (game.setEnvironment().isSafe(getFirstCase()) && game.setEnvironment();isSafe(getBeforeFirstCase())) {
+		if (game.setEnvironment().isSafe(getFirstCase()) && game.setEnvironment().isSafe(getBeforeFirstCase())) {
 			if (game.randomGen.nextDouble() < density) {
 				cars.add(new Car(game, getBeforeFirstCase(), leftToRight));
 			}

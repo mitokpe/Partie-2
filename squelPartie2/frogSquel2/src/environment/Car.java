@@ -16,7 +16,7 @@ public class Car {
 
 	//TODO Constructeur(s)
 	
-	public Car (Game game, Case firstCase, Boolean leftToRight, int length) {
+	public Car(Game game, Case firstCase, Boolean leftToRight) {
 		this.game = game;
 		this.leftPosition = new Case(leftToRight ? firstCase.absc - this.length : firstCase.absc, firstCase.ord);
 		this.leftToRight = leftToRight;
