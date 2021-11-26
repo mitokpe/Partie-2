@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import util.Case;
 import gameCommons.Game;
+import java.util.Random;
 
 public class Lane {
 	private Game game;
@@ -12,15 +13,16 @@ public class Lane {
 	private ArrayList<Car> cars = new ArrayList<>();
 	private boolean leftToRight;
 	private double density;
+	private int timer;
 
 	// TODO : Constructeur(s)
 	
-	public Lane (Game game) {
+	public Lane (Game game, int ord, double density) {
 		this.game = game;
 		this.ord = ord;
-		this.speed = speed;
-		this.cars = cars;
-		this.leftToRight = leftToRight;
+		this.speed = game.randomGen.nextInt(game.minSpeedInTimerLoops) + 1;;
+		this.cars = new ArrayList<>();
+		this.leftToRight = game.randomGen.nextBoolean();
 		this.density = density;
 	}
 
