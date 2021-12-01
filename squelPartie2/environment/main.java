@@ -31,7 +31,7 @@ public class main {
         game.setFrog(frog);
         graphic.setFrog(frog);
         //Cr�ation et liaison de l'environnement
-        Environment env = new GivenEnvironment(game) {
+        Environment env = new environment(game) {
         game.setEnvironment(env);
 
         //Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
@@ -44,7 +44,7 @@ public class main {
         });
         timer.setInitialDelay(0);
         timer.start();
-    }
+    };
 }
     }
 }
