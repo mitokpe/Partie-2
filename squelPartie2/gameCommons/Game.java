@@ -14,6 +14,7 @@ public class Game {
 	public final int height;
 	public final int minSpeedInTimerLoops;
 	public final double defaultDensity;
+	public int scoreMin;
 
 	// Lien aux objets utilis�s
 	private IEnvironment environment;
@@ -59,6 +60,12 @@ public class Game {
 	public void setEnvironment(IEnvironment environment) {
 		this.environment = environment;
 	}
+
+	/**
+	 *
+	 * @return le score mis a jour
+	 */
+	public void setScoreMin(int scoreMin) { this.scoreMin = scoreMin; }
 
 	/**
 	 * 

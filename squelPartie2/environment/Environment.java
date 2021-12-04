@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class Environment implements IEnvironment {
-		
-	//TODO
 
     public class environment implements IEnvironment {
         private ArrayList<Lane> road;
