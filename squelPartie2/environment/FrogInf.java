@@ -27,23 +27,23 @@ public class FrogInf implements IFrog {
     public void move(Direction key) {
         switch (key) {
         case up:
-            this.position = new Case(this.position.absc, this.position.ord + 1);
+            this.cases = new Case(this.cases.absc, this.cases.ord + 1);
             this.direction = Direction.up;
             this.game.scoreMin++;
-            this.game.setScore();
+            this.game.setScoreMin(game.scoreMin);
             break;
             case down:
-                this.position = new Case(this.position.absc, this.position.ord - 1);
+                this.cases = new Case(this.cases.absc, this.cases.ord - 1);
                 this.direction = Direction.down;
                 this.game.scoreMin--;
-                this.game.setScore();
+                this.game.setScoreMin(game.scoreMin);
                 break;
             case left:
-                this.position = new Case(this.position.absc - 1, this.position.ord);
+                this.cases = new Case(this.cases.absc - 1, this.cases.ord);
                 this.direction = Direction.left;
                 break;
             case right:
-                this.position = new Case(this.position.absc + 1, this.position.ord);
+                this.cases = new Case(this.cases.absc + 1, this.cases.ord);
                 this.direction = Direction.right;
                 break;
         }
