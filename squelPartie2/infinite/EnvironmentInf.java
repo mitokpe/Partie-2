@@ -2,7 +2,6 @@ package infinite;
 
 import gameCommons.Game;
 import gameCommons.IEnvironment;
-import givenEnvironment.Lane;
 
 import java.util.ArrayList;
 

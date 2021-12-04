@@ -86,10 +86,7 @@ public class LaneInf {
     }
 
     private void moveCars(boolean b) {
-        Iterator var3 = this.cars.iterator();
-
-        while (var3.hasNext()) {
-            givenEnvironment.Car car = (givenEnvironment.Car) var3.next();
+        for (Car car : this.cars) {
             car.move(b);
         }
     }
