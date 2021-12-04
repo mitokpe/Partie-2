@@ -81,12 +81,10 @@ public class Game {
 	 * 
 	 * @return true si le partie est perdue
 	 */
-	public boolean testLose() {
-		// TODO
-		if (environment.isSafe(frog.getPosition()) && ! environment.isWinningPosition(frog.getPosition())){
-			return true;
+	public void testLose() {
+		if (!environment.isSafe(frog.getPosition())) {
+			this.graphic.endGameScreen("You lost !");
 		}
-		return false;
 	}
 
 	/**
@@ -95,12 +93,10 @@ public class Game {
 	 * 
 	 * @return true si la partie est gagn�e
 	 */
-	public boolean testWin() {
-		// TODO
-		if (environment.isSafe(frog.getPosition()) && environment.isWinningPosition(frog.getPosition())){
-			return true;
+	public void testWin() {
+		if (environment.isWinningPosition(frog.getPosition())) {
+			this.graphic.endGameScreen("You won !");
 		}
-		return false;
 	}
 
 	/**
@@ -110,9 +106,11 @@ public class Game {
 	public void update() {
 		graphic.clear();
 		environment.update();
+
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
-		testLose();
-		testWin();
+
+		this.testLose();
+		this.testWin();
 	}
 
 }

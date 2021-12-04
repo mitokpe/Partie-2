@@ -14,7 +14,6 @@ public class Lane {
 	private boolean leftToRight;
 	private double density;
 	private int timer;
-	private ArrayList<Lane> road;
 
 	// TODO : Constructeur(s)
 	
@@ -30,6 +29,10 @@ public class Lane {
 			this.moveCars(true);
 			this.mayAddCar();
 		}
+	}
+
+	public Lane (Game game, int ord) {
+		this(game, ord, game.defaultDensity);
 	}
 
 	public void update() {
@@ -78,10 +81,7 @@ public class Lane {
 	}
 
 	private void moveCars(boolean b) {
-		Iterator var3 = this.cars.iterator();
-
-		while (var3.hasNext()) {
-			givenEnvironment.Car car = (givenEnvironment.Car) var3.next();
+		for (Car car : this.cars) {
 			car.move(b);
 		}
 	}
@@ -90,7 +90,13 @@ public class Lane {
 	 * Fourni : mayAddCar(), getFirstCase() et getBeforeFirstCase() 
 	 */
 	public boolean isSafe(Case c) {
-		return (this.road.get(c.ord)).isSafe(c);
+		for (Car car : this.cars) {
+			if (car.verification(c)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	/**

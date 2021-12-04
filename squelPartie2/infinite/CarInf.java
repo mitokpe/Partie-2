@@ -1,4 +1,4 @@
-package environment;
+package infinite;
 
 import gameCommons.Game;
 import graphicalElements.Element;
@@ -19,7 +19,7 @@ public class CarInf {
 
         public Car(Game game, Case firstCase, Boolean leftToRight) {
             this.game = game;
-            this.leftPosition = new Case(leftToRight ? firstCase.absc - this.length : firstCase.absc, firstCase.ord);
+            this.leftPosition = new Case(leftToRight ? firstCase.abs - this.length : firstCase.abs, firstCase.ord);
             this.leftToRight = leftToRight;
             this.length = length;
             this.colorLtR = Color.BLACK;
@@ -30,21 +30,21 @@ public class CarInf {
 
         public void move(boolean b) {
             if (b) {
-                this.leftPosition = new Case(leftToRight ? this.leftPosition.absc + 1 : this.leftPosition.absc + 1 , this.leftPosition.ord);
+                this.leftPosition = new Case(leftToRight ? this.leftPosition.abs + 1 : this.leftPosition.abs + 1 , this.leftPosition.ord);
             }
 
             this.addToGraphics();
         }
 
         public boolean dansLaVoie () {
-            return this.leftPosition.absc + this.length > 0 && this.leftPosition.absc < this.game.width;
+            return this.leftPosition.abs + this.length > 0 && this.leftPosition.abs < this.game.width;
         }
 
         public boolean verification (Case case1) {
             if (case1.ord != this.leftPosition.ord) {
                 return false;
             } else {
-                return case1.absc >= this.leftPosition.absc && case1.absc < this.leftPosition.absc + this.length;
+                return case1.abs >= this.leftPosition.abs && case1.abs < this.leftPosition.abs + this.length;
             }
         }
 
@@ -56,7 +56,7 @@ public class CarInf {
                     color = colorLtR;
                 }
                 game.getGraphic()
-                        .add(new Element(leftPosition.absc + i, leftPosition.ord, color));
+                        .add(new Element(leftPosition.abs + i, leftPosition.ord, color));
             }
         }
 

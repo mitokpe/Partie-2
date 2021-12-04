@@ -1,12 +1,12 @@
 package util;
 
 public class Case {
-	public final int absc;
+
+	public final int abs;
 	public final int ord;
 	
-	public Case(int absc, int ord) {
-		super();
-		this.absc = absc;
+	public Case(int abs, int ord) {
+		this.abs = abs;
 		this.ord = ord;
 	}
 

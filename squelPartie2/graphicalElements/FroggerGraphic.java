@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListener {
+
 	private ArrayList<Element> elementsToDisplay;
 	private int pixelByCase = 16;
 	private int width;
@@ -28,6 +29,7 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 
 		JFrame frame = new JFrame("Frogger");
 		this.frame = frame;
+		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(this);
 		frame.pack();
@@ -35,11 +37,11 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 		frame.addKeyListener(this);
 	}
 
-	public void paintComponent(Graphics g) {
+	public synchronized void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		for (Element e : elementsToDisplay) {
 			g.setColor(e.color);
-			g.fillRect(pixelByCase * e.absc, pixelByCase * (height - 1 - e.ord), pixelByCase, pixelByCase - 1);
+			g.fillRect(pixelByCase * e.abs, pixelByCase * (height - 1 - e.ord), pixelByCase, pixelByCase - 1);
 		}
 	}
 
@@ -65,11 +67,11 @@ public class FroggerGraphic extends JPanel implements IFroggerGraphics, KeyListe
 		}
 	}
 
-	public void clear() {
+	public synchronized void clear() {
 		this.elementsToDisplay.clear();
 	}
 
-	public void add(Element e) {
+	public synchronized void add(Element e) {
 		this.elementsToDisplay.add(e);
 	}
 
